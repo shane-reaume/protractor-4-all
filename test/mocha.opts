@@ -1,0 +1,3 @@
+--ui bdd
+--exit
+--timeout 120000

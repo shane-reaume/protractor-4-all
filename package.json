@@ -1,0 +1,30 @@
+{
+  "name": "protractor-for-all",
+  "version": "1.0.0",
+  "description": "selenium e2e testing in a flavor of Protractor",
+  "keywords": [
+    "protractor",
+    "mocha",
+    "browserstack",
+    "gulp",
+    "async"
+  ],
+  "license": "MIT",
+  "no-optional": true,
+  "author": {
+    "name": "Shane Reaume",
+    "email": "shanereaume@gmail.com"
+  },
+  "scripts": {},
+  "dependencies": {
+    "gulp": "^4.0.0",
+    "gulp-protractor": "^4.1.0",
+    "protractor": "^5.3.0",
+    "lodash": "^4.17.10",
+    "mocha": "^3.5.3",
+    "chai": "^4.1.2",
+    "mochawesome": "^2.3.1",
+    "open": "0.0.5",
+    "eslint": "^4.16.0"
+  }
+}
