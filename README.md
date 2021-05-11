@@ -11,6 +11,12 @@ Key features:
 - Page Objects (get started with POM)
 - Screenshots
 
+Requirements:
+
+- Install nodejs 16.1.0
+   - https://nodejs.org
+   - if nodejs already installed on older version checkout nvm
+
 Steps:
 
 1) download the repo and access root directory in terminal or command to run
