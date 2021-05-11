@@ -3,8 +3,13 @@ A flavor of protractor for testing any web application, with Gulp, Mocha/Chai, a
 
 Steps:
 
-1) npm i
-2) add browserstack credentials and your devices in browserStack.cred.js.setup
-3) change browserStack.cred.js.setup to browserStack.cred.js 
+1) download the repo
+2) `npm i`
+3) run the gulp task named google-desktop-chrome
+
+Next Steps If using browserstack: 
+
+1) add browserstack credentials and your devices in browserStack.cred.js.setup
+2) change browserStack.cred.js.setup to browserStack.cred.js 
     (this is a gitignore so you can contribute to the project)
-4) Run the desktop or browserstack/mobile job from the gulpfile.js
+3) Run the desktop or browserstack/mobile job from the gulpfile.js

@@ -1,5 +1,5 @@
-const d = require('protractor');
-const ec = d.ExpectedConditions;
+const { browser, $, ExpectedConditions } = require('protractor');
+const EC = ExpectedConditions;
 const config = require('./config').config;
 const fs = require('fs');
 const _ = require('lodash');
@@ -10,7 +10,7 @@ afterEach('finalize test reports', async function() {
 	 * screenshot if test fails
 	 */
 	if (this.currentTest.state !== 'passed') {
-		const png = await d.browser.takeScreenshot();
+		const png = await browser.takeScreenshot();
 		try {
 			common.saveScreenshot(png, `${stepName}.png`);
 		} catch (err) {
@@ -24,10 +24,10 @@ let common = {
 		maxwait: 30000
 	},
 	waitForIt: function(path) {
-		return d.browser.wait(ec.presenceOf(d.$(path)), common.defaults.maxwait);
+		return browser.wait(EC.presenceOf($(path)), common.defaults.maxwait);
 	},
 	scrollToIt: async function(path) {
-		return await d.browser.executeScript(`document.querySelector("d.${path}").scrollIntoView({block: "end", behavior: "smooth"});`);
+		return await browser.executeScript(`document.querySelector("d.${path}").scrollIntoView({block: "end", behavior: "smooth"});`);
 	},
 	hasClass: function(element, cls) {
 		return element.getAttribute('class').then(function (classes) {
@@ -45,5 +45,5 @@ module.exports = {
 	config: config,
 	common: common,
 	_: _,
-	ec: ec
+	EC: EC
 };

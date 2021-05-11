@@ -1,4 +1,0 @@
-exports.credentials = {
-	user: 'add user here',
-	key: 'add key here',
-};

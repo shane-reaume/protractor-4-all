@@ -2,9 +2,12 @@ const chai = require('chai');
 global['chai'] = chai;
 global['should'] = chai.should();
 const viewReport = require('open');
+let x = new Date;
 const bs = require('./browserStack.cred');
 
-let x = new Date;
+/*
+ *  get args then method to allow return of value per key
+ */
 let arg = process.argv;
 /**
  * Return value of passed in key arg via CLI or gulpfile
@@ -44,7 +47,8 @@ let mob = indOfArg('--mob', arg) || false;
 
 // OS/platform is determined for proper drivers
 console.log(`This platform is ${process.platform}`);
-const CHROMEDRIVER = (process.platform === 'darwin') ? 'chromedriver' : 'chromedriver.exe';
+// eslint-disable-next-line no-nested-ternary
+const CHROMEDRIVER = (process.platform === 'win32') ? 'chromedriver.exe' : (process.platform === 'darwin') ? 'chromedriver' : 'chromedriver-ubuntu';
 
 // chrome args
 let chromeArgs = [ '--disable-infobars', '--disableChecks', '--start-maximized' ];
@@ -84,7 +88,8 @@ if (bst) {
 		os_version: '9.0',
 		'browserstack.user': bs.credentials.user,
 		'browserstack.key': bs.credentials.key,
-		name: 'Sample Test'
+		name: 'Sample Test',
+		'goog:chromeOptions': { w3c: false }
 	};
 }
 
@@ -93,7 +98,7 @@ let config = {
 	env: env,
 	rep: rep,
 	framework: 'mocha',
-	seleniumServerJar: bst ? '' : './bin/selenium-server-standalone-2.53.1.jar',
+	seleniumServerJar: bst ? '' : './bin/selenium-server-standalone-3.9.1.jar',
 	mobile: mob ? true : false,
 	mochaOpts: {
 		ui: 'bdd',
@@ -113,7 +118,7 @@ let config = {
 	/*
    * local reporting can open report in browser
    */
-	onComplete: (rep === 'local') ? () => { viewReport(`./testingReports/${REPORT_FILENAME}.html`); } : console.log('DONE!'),
+	onComplete: (rep === 'local') ? async () => { await viewReport(`./testingReports/${REPORT_FILENAME}.html`, { wait: true }); } : console.log('DONE!'),
 };
 
 if (mob) capabilities.seleniumAddress = 'http://hub-cloud.browserstack.com/wd/hub';
