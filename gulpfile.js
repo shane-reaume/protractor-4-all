@@ -9,6 +9,15 @@ if (args.indexOf('--gulpfile' === -1)) { args = []; }
 // * keeps protractor from listening to custom args and throwing error
 args.unshift('--disableChecks');
 
+gulp.task('google-desktop-chrome', function(done) {
+	gulp.src([ './specDemo/*.spec.js' ])
+		.pipe(protractor({ configFile: './config.js', args }))
+		.on('error', function(e) { throw e; })
+		.on('end', done);
+});
+
+// Browserstack
+
 gulp.task('google-browserstack-mobile-chrome', function(done) {
 	gulp.src([ './specDemo/*.spec.js' ])
 		.pipe(protractor({ configFile: './config.js', args: args.concat([ '--bst',true , '--mob',true ]) }))
@@ -16,9 +25,9 @@ gulp.task('google-browserstack-mobile-chrome', function(done) {
 		.on('end', done);
 });
 
-gulp.task('google-desktop-chrome', function(done) {
+gulp.task('google-browserstack-desktop-chrome', function(done) {
 	gulp.src([ './specDemo/*.spec.js' ])
-		.pipe(protractor({ configFile: './config.js', args }))
+		.pipe(protractor({ configFile: './config.js', args: args.concat([ '--bst',true ]) }))
 		.on('error', function(e) { throw e; })
 		.on('end', done);
 });

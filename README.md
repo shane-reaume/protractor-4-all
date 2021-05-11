@@ -9,7 +9,5 @@ Steps:
 
 Next Steps If using browserstack: 
 
-1) add browserstack credentials and your devices in browserStack.cred.js.setup
-2) change browserStack.cred.js.setup to browserStack.cred.js 
-    (this is a gitignore so you can contribute to the project)
-3) Run the desktop or browserstack/mobile job from the gulpfile.js
+1) add browserstack credentials and your devices in browserStack.cred
+2) Run the desktop or browserstack/mobile job from the gulpfile.js
