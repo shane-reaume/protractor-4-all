@@ -13,7 +13,7 @@ describe('Google - search for protractor-4-all', function() {
 		await common.waitForIt(google.search);
 		await $(google.search).sendKeys('AbacusNext').sendKeys(Key.RETURN);
 		await common.waitForIt(google.address);
-		(await $(google.address).getText()).should.contain('https://www.abacusnext.com');
+		(await $(google.address).getText()).should.contain('www.abacusnext.com');
 	});
 
 });

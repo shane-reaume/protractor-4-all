@@ -1,11 +1,21 @@
 # protractor-4-all
-A flavor of protractor for testing any web application, with Gulp, Mocha/Chai, async/await, BrowserStack, mochawesome, page objects (mobile/desktop) and screenshots
+### A vanilla flavor of protractor, batteries included!
+
+Key features:
+- Works on Windows, MacOS and Ubuntu without any changes.
+- Gulp to organize test scripts and associated config/args
+- Mocha/Chai assertions 
+- async/await for the modern JavaScript experience
+- BrowserStack and mobile option, just add credentials and pick appropriate gulp task or make your own
+- Automagically open a report if needed via mochawesome and open
+- Page Objects (get started with POM)
+- Screenshots
 
 Steps:
 
-1) download the repo
-2) `npm i`
-3) run the gulp task named google-desktop-chrome
+1) download the repo and access root directory in terminal or command to run
+2) `npm i` # installing dependencies 
+3) `gulp google-desktop-chrome` # run the gulp task/test
 
 Next Steps If using browserstack: 
 
