@@ -1,4 +1,6 @@
-# protractor-4-all
+<span style="color:red;">Outdated project, please use at your own risk</span>
+
+## protractor-4-all
 ### A vanilla flavor of protractor, batteries included!
 
 Key features:
